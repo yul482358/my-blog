@@ -2,7 +2,7 @@
 
 backend:
   name: github
-  repo: yul482358/liangchi-blog
+  repo: yul482358/my-blog
   branch: main
 
 media_folder: "public/uploads"
