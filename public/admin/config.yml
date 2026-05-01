@@ -1,0 +1,46 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+
+backend:
+  name: github
+  repo: yul482358/liangchi-blog
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "blog"
+    label: "博客文章"
+    label_singular: "文章"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - label: "标题"
+        name: "title"
+        widget: "string"
+
+      - label: "摘要"
+        name: "description"
+        widget: "text"
+        required: false
+
+      - label: "发布日期"
+        name: "pubDate"
+        widget: "datetime"
+
+      - label: "封面图"
+        name: "heroImage"
+        widget: "image"
+        required: false
+
+      - label: "标签"
+        name: "tags"
+        widget: "list"
+        required: false
+
+      - label: "正文"
+        name: "body"
+        widget: "markdown"
