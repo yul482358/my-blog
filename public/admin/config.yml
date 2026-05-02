@@ -1,5 +1,3 @@
-# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
-
 backend:
   name: github
   repo: yul482358/my-blog
@@ -9,10 +7,10 @@ media_folder: "public/uploads"
 public_folder: "/uploads"
 
 collections:
-  - name: "blog"
+  - name: "posts"
     label: "博客文章"
     label_singular: "文章"
-    folder: "src/content/blog"
+    folder: "src/content/posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     extension: "md"
@@ -22,24 +20,43 @@ collections:
         name: "title"
         widget: "string"
 
+      - label: "SEO 标题"
+        name: "meta_title"
+        widget: "string"
+        required: false
+
       - label: "摘要"
         name: "description"
         widget: "text"
-        required: false
 
       - label: "发布日期"
-        name: "pubDate"
+        name: "date"
         widget: "datetime"
 
       - label: "封面图"
-        name: "heroImage"
+        name: "image"
         widget: "image"
         required: false
+
+      - label: "分类"
+        name: "categories"
+        widget: "list"
+        required: false
+
+      - label: "作者"
+        name: "authors"
+        widget: "list"
+        default: ["Mark Dinn"]
 
       - label: "标签"
         name: "tags"
         widget: "list"
         required: false
+
+      - label: "草稿"
+        name: "draft"
+        widget: "boolean"
+        default: false
 
       - label: "正文"
         name: "body"
